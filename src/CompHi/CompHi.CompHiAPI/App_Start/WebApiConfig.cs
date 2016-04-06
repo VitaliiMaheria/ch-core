@@ -23,6 +23,8 @@ namespace CompHi.CompHiAPI
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            config.EnableCors();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -30,9 +32,20 @@ namespace CompHi.CompHiAPI
             );
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormatter.SerializerSettings.Converters.Add(new StringEnumConverter());
             jsonFormatter.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Populate;
+
+
+            //var formatters = config.Formatters;
+            //var settings = formatters.JsonFormatter.SerializerSettings;
+            //settings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //settings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
+            //settings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            //settings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+            //formatters.XmlFormatter.SupportedMediaTypes.Clear();
+
 
         }
     }

@@ -10,11 +10,17 @@ namespace CompHi.DataAccess.Contexts
 {
     public class CompaniesContext : DbContext
     {
-        public CompaniesContext(string nameOrConnectionString, bool proxyCreationEnabled = true)
+        static CompaniesContext()
+        {
+            Database.SetInitializer(new CompaniesContextInitializer());
+        }
+
+        public CompaniesContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
-            Configuration.ProxyCreationEnabled = proxyCreationEnabled;
+            Configuration.ProxyCreationEnabled = true;
+            //Configuration.LazyLoadingEnabled = false;
         }
-        public DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Company> Companies { get; set; }
     }
 }

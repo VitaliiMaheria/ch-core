@@ -1,4 +1,5 @@
-﻿using CompHi.Core.Domain;
+﻿using CompHi.Core.Common;
+using CompHi.Core.Domain;
 using CompHi.Core.Domain.Models;
 using CompHi.DataAccess.Contexts;
 using SharpRepository.EfRepository;

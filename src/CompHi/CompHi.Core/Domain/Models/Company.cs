@@ -14,8 +14,10 @@ namespace CompHi.Core.Domain.Models
         public string Name { get; set; }
         public decimal Earnings { get; set; }
 
-        public virtual Company ParentCompany { get; set; }
+        public Company ParentCompany { get; set; }
         public virtual ICollection<Company> Companies { get; set; }
+
+
         #endregion
 
         #region Constructors
@@ -25,4 +27,5 @@ namespace CompHi.Core.Domain.Models
         }
         #endregion
     }
+
 }

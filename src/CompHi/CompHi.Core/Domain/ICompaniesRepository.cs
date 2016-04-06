@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CompHi.Core.Domain
 {
-    public interface ICompaniesRepository: IRepository<Company, Guid>
+    public interface ICompaniesRepository : IRepository<Company, Guid>
     {
     }
 }
