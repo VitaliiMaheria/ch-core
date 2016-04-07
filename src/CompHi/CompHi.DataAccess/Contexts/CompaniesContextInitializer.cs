@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace CompHi.DataAccess.Contexts
 {
-    //public class CompaniesContextInitializer : DropCreateDatabaseIfModelChanges<CompaniesContext>
-    //public class CompaniesContextInitializer : CreateDatabaseIfNotExists<CompaniesContext>
     public class CompaniesContextInitializer : DropCreateDatabaseAlways<CompaniesContext>
     {
         protected override void Seed(CompaniesContext context)

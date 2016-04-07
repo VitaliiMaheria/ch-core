@@ -38,15 +38,6 @@ namespace CompHi.CompHiAPI
             jsonFormatter.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Populate;
 
 
-            //var formatters = config.Formatters;
-            //var settings = formatters.JsonFormatter.SerializerSettings;
-            //settings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            //settings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
-            //settings.Formatting = Newtonsoft.Json.Formatting.Indented;
-            //settings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
-            //formatters.XmlFormatter.SupportedMediaTypes.Clear();
-
-
         }
     }
 }

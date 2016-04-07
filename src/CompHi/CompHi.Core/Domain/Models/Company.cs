@@ -13,6 +13,7 @@ namespace CompHi.Core.Domain.Models
         public Guid? ParentCompanyId { get; set; }
         public string Name { get; set; }
         public decimal Earnings { get; set; }
+        public decimal TotalEarnings => GetTotalEarnings();
 
         public Company ParentCompany { get; set; }
         public virtual ICollection<Company> Companies { get; set; }
@@ -26,6 +27,14 @@ namespace CompHi.Core.Domain.Models
             Companies = new List<Company>();
         }
         #endregion
+
+
+        private decimal GetTotalEarnings()
+        {
+            var earnings = Earnings;
+            Companies?.ToList().ForEach(c => earnings += c.TotalEarnings);
+            return earnings;
+        }
     }
 
 }
